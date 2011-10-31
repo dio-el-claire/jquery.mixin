@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>test</title>
+	<meta name="generator" content="TextMate http://macromates.com/">
+	<meta name="author" content="Dmitry (dio) Levashov">
+	<!-- Date: 2011-10-31 -->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" ></script>
+	<script src="jquery.mixin.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" charset="utf-8">
+		$(function() {
+			
+			var donor = {
+				name : 'Aaaa',
+				say : function(word) {
+					console.log(this.name+' says '+word+' and '+([].slice.call(arguments, 1).join(' and ')))
+				},
+				
+				dosmth : function(arg) {
+					console.log('do smth with '+arg)
+				}
+			},
+			
+			say = function() {
+				console.log(this.name)
+			},
+			
+			rcpt = {
+				name : 'Bbbb'
+			}
+			;
+			
+			donor.say('hello', 'goodbay')
+			// $.mixin(rcpt, 'say', donor.say, ['konnitiva'])
+			// rcpt.say('hadjimemashite', 'sayonara')
+			$.mixin(rcpt, donor)
+			rcpt.say('hadjimemashite', 'sayonara')
+		})
+	</script>
+</head>
+<body>
+
+</body>
+</html>
