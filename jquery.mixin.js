@@ -20,7 +20,7 @@
 				data   = args[3];
 				
 				if ((typeof name != 'string' || !name) || typeof method != 'function') {
-					throw(new Error(usage));
+					throw new Error(usage);
 				}
 				
 				obj[name] = function() {
@@ -34,7 +34,7 @@
 					}	
 				});
 			} else {
-				throw(usage);
+				throw new Error(usage);
 			}
 
 		}
