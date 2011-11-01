@@ -2,10 +2,16 @@
 	"use strict"
 	
 	if (!$.mixin) {
+		/**
+		 * jQuery extension.
+		 * Bind method to object with currying of arguments
+		 * or bind all methods from one object to another
+		 *
+		 */
 		$.mixin = function() {
-			var args = arguments,
-				obj = args[0], 
-				usage = 'Usage: $.mixin(object, method_name, method_src, data)',
+			var args  = arguments,
+				obj   = args[0], 
+				usage = "Usage: $.mixin(object, method_name, method_src, data) or\n$.mixin(rcpt_object, donor_object)",
 				name, method, data;
 
 			if (args.length > 2) {
